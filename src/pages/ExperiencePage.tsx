@@ -33,11 +33,11 @@ export const ExperiencePage: React.FC = () => {
     },
     {
       num: '03',
-      title: 'LIVE',
+      title: 'STAY',
       headline: 'Enjoy the freedom, privacy, and comfort of a private residence.',
       imageKey: '[EXPERIENCE_LIVE_IMAGE]',
       narrative: 'Unlike conventional luxury hotels, a Sobha residence offers uncompromised spatial freedom. Host an intimate dinner prepared by a private chef in your show kitchen, sip Ceylon silver tips tea on your deep covered ocean terrace, or sink into plush organic linens in sound-isolated bedrooms.',
-      quote: 'True luxury is having the space to live entirely on your own terms.'
+      quote: 'True luxury is having the space to stay entirely on your own terms.'
     },
     {
       num: '04',
@@ -50,7 +50,7 @@ export const ExperiencePage: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#FAF8F5] pt-24 md:pt-32 pb-36">
+    <div className="bg-[#FAF8F5] pt-20 sm:pt-40 md:pt-28 pb-36">
       {/* Editorial Title */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20 md:mb-32 text-center">
         <div className="max-w-3xl mx-auto space-y-4">
@@ -73,9 +73,8 @@ export const ExperiencePage: React.FC = () => {
           return (
             <article
               key={ch.num}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center ${
-                isReversed ? 'lg:flex-row-reverse' : ''
-              }`}
+              className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center ${isReversed ? 'lg:flex-row-reverse' : ''
+                }`}
             >
               {/* Image */}
               <div className={`lg:col-span-7 ${isReversed ? 'lg:order-2' : ''}`}>

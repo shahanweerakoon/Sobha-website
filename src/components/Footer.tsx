@@ -6,6 +6,7 @@
 import React from 'react';
 import { useNavigation } from '../context/NavigationContext';
 import { ArrowUp, Camera, ShieldCheck, MapPin, Mail, Phone } from 'lucide-react';
+import logoDark from '../assets/images/logo/sobha-logo-dark.png';
 
 export const Footer: React.FC = () => {
   const { navigate, openReservationModal, openImageManager } = useNavigation();
@@ -20,13 +21,13 @@ export const Footer: React.FC = () => {
         {/* Top Statement */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 border-b border-white/10">
           <div className="lg:col-span-5 space-y-6">
-            <div className="space-y-1">
-              <span className="font-serif text-3xl md:text-4xl tracking-[0.25em] uppercase text-white font-light">
-                SOBHA
-              </span>
-              <p className="text-[10px] tracking-[0.4em] uppercase text-[#C5A880]">
-                SRI LANKA
-              </p>
+            <div>
+              <img
+                src={logoDark}
+                alt="Sobha Realty Sri Lanka"
+                className="h-6 md:h-7 max-w-[170px] w-auto object-contain shrink-0"
+                style={{ maxHeight: '80px' }}
+              />
             </div>
             <p className="text-sm md:text-base text-[#8C827A] font-light leading-relaxed max-w-md">
               A bespoke convergence of international architectural mastery, five-star hospitality, and the timeless tropical elegance of Sri Lanka’s coastal capital.

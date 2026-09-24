@@ -15,7 +15,7 @@ export const AboutPage: React.FC = () => {
   const { navigate, openReservationModal } = useNavigation();
 
   return (
-    <div className="bg-[#FAF8F5] pt-24 md:pt-32 pb-36">
+    <div className="bg-[#FAF8F5] pt-20 sm:pt-24 md:pt-28 pb-36">
       {/* Title */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20 md:mb-32 text-center">
         <div className="max-w-3xl mx-auto space-y-4">

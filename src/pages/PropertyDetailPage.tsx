@@ -46,14 +46,15 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
   return (
     <div className="bg-[#FAF8F5] pb-32">
       {/* Spec #12 Hero: FULL-WIDTH APARTMENT IMAGE */}
-      <section className="relative h-[80vh] md:h-[90vh] w-full flex items-end pb-16 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative h-[80dvh] md:h-[90vh] w-full flex items-end pb-16 md:pb-24 overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
           <SobhaImage
             imageKey={residence.heroImageKey}
             priority
-            className="w-full h-full object-cover scale-100"
+            containerClassName="w-full h-full absolute inset-0"
+            className="w-full h-full object-cover object-center scale-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 w-full text-white">

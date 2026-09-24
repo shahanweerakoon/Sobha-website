@@ -32,7 +32,7 @@ export const LocationPage: React.FC = () => {
   });
 
   return (
-    <div className="bg-[#FAF8F5] pt-24 md:pt-32 pb-36">
+    <div className="bg-[#FAF8F5] pt-20 sm:pt-24 md:pt-28 pb-36">
       {/* Title Section */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16 text-center">
         <div className="max-w-3xl mx-auto space-y-4">

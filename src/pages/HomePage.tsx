@@ -12,23 +12,26 @@ import { SobhaImage } from '../components/SobhaImage';
 import { FeaturedSlider } from '../components/FeaturedSlider';
 import { SINGLE_BEDROOM_APARTMENT_SUITE } from '../data/residences';
 import { AMENITIES_DATA } from '../data/amenities';
+import { getImage } from '../data/images';
 import { ArrowRight, Bed, Bath, Maximize2, Users, ChevronDown } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const { navigate, openReservationModal } = useNavigation();
+  const heroAsset = getImage('[HERO_IMAGE]');
 
   return (
     <div className="bg-[#FAF8F5] overflow-hidden">
       {/* Spec #6: FULL-SCREEN HERO */}
-      <section className="relative min-h-[90vh] sm:min-h-screen w-full flex items-end pb-16 sm:pb-20 md:pb-28 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <SobhaImage
-            imageKey="[HERO_IMAGE]"
-            priority
-            className="w-full h-full object-cover scale-100 animate-in fade-in zoom-in-105 duration-1000"
+      <section className="relative h-[100dvh] min-h-[100dvh] sm:min-h-screen w-full flex items-end pb-16 sm:pb-20 md:pb-28 overflow-hidden">
+        {/* Background Image: True Fullscreen Cover on Mobile & Desktop */}
+        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
+          <img
+            src={heroAsset.url}
+            alt={heroAsset.alt}
+            className="absolute inset-0 w-full h-full object-cover object-center scale-100 min-w-full min-h-full"
+            loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/25 pointer-events-none" />
         </div>
 
         {/* Hero Overlay */}

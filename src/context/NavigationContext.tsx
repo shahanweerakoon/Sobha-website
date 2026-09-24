@@ -35,7 +35,7 @@ export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   useEffect(() => {
     const handlePopState = () => {
       setCurrentPath(window.location.pathname || '/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -44,14 +44,14 @@ export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
   const navigate = (path: string) => {
     if (path === currentPath) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
       return;
     }
     if (typeof window !== 'undefined') {
       window.history.pushState({}, '', path);
     }
+    window.scrollTo(0, 0);
     setCurrentPath(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openReservationModal = (residenceSlug?: string) => {

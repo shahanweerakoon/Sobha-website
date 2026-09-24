@@ -16,16 +16,17 @@ export const ApartmentSuitesPage: React.FC = () => {
   const { navigate, openReservationModal } = useNavigation();
 
   return (
-    <div className="bg-[#FAF8F5] pt-24 md:pt-32 pb-32">
+    <div className="bg-[#FAF8F5] pt-0 pb-32">
       {/* Hero Section */}
-      <section className="relative h-[65vh] md:h-[75vh] w-full flex items-end pb-16 md:pb-24 overflow-hidden mb-20 md:mb-28">
-        <div className="absolute inset-0">
+      <section className="relative h-[70dvh] md:h-[75vh] w-full flex items-end pb-16 md:pb-24 overflow-hidden mb-20 md:mb-28">
+        <div className="absolute inset-0 w-full h-full">
           <SobhaImage
             imageKey="[APARTMENT_SUITE_IMAGE]"
             priority
-            className="w-full h-full object-cover scale-100"
+            containerClassName="w-full h-full absolute inset-0"
+            className="w-full h-full object-cover object-center scale-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 w-full text-white">

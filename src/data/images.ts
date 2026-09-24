@@ -14,6 +14,8 @@
  * [LOCATION_IMAGE], [AMENITIES_IMAGE]"
  */
 
+import colomboApartmentHero from '../assets/images/colombo-apartment-hero.jpg';
+
 export interface ImageAsset {
   key: string;
   label: string;
@@ -63,18 +65,18 @@ export const INITIAL_IMAGE_REGISTRY: Record<ImageKey, ImageAsset> = {
     label: 'Hero Flagship Residence View',
     category: 'architecture',
     aspectRatio: '16:9',
-    url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=85',
-    alt: 'Sobha Sri Lanka luxury residential penthouse living area overlooking coastal waters',
-    caption: 'Elevated coastal residential architecture with floor-to-ceiling glass in Colombo'
+    url: colomboApartmentHero,
+    alt: 'Sobha Sri Lanka luxury residential penthouse living area overlooking Colombo coastline and Indian Ocean',
+    caption: 'Elevated coastal residential architecture with floor-to-ceiling glass in Colombo, Sri Lanka'
   },
   '[APARTMENT_SUITE_IMAGE]': {
     key: '[APARTMENT_SUITE_IMAGE]',
     label: 'Apartment Suites Collection',
     category: 'apartments',
     aspectRatio: '16:9',
-    url: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=85',
-    alt: 'Sobha spacious luxury apartment living salon and dining room',
-    caption: 'Spacious private residences engineered for effortless, dignified living'
+    url: colomboApartmentHero,
+    alt: 'Sobha Sri Lanka spacious luxury apartment living salon overlooking Colombo shoreline',
+    caption: 'Spacious private residences engineered for effortless, dignified living in Colombo'
   },
   '[BEDROOM_SUITE_IMAGE]': {
     key: '[BEDROOM_SUITE_IMAGE]',

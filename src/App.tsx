@@ -13,6 +13,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ReservationModal } from './components/ReservationModal';
 import { ImageManagerModal } from './components/ImageManagerModal';
+import { SplashLoader } from './components/SplashLoader';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -103,6 +104,9 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#141312] selection:bg-[#C5A880] selection:text-white font-sans antialiased">
+      {/* 2-Second Initial Entry Splash Loader with single-logo.png */}
+      <SplashLoader />
+
       {/* Universal Luxury Header */}
       <Header />
 

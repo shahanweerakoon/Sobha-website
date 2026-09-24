@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import { useNavigation } from '../context/NavigationContext';
 import { SINGLE_BEDROOM_APARTMENT_SUITE, Residence } from '../data/residences';
 import { X, Check, ShieldCheck, ArrowRight, Sparkles, Clock, Calendar } from 'lucide-react';
+import logoLight from '../assets/images/logo/sobha-logo-light.png';
 
 export const ReservationModal: React.FC = () => {
   const { isReservationModalOpen, closeReservationModal } = useNavigation();
@@ -30,7 +31,6 @@ export const ReservationModal: React.FC = () => {
   const [guestName, setGuestName] = useState('');
   const [guestEmail, setGuestEmail] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
-  const [airportTransfer, setAirportTransfer] = useState(false);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [confirmationCode, setConfirmationCode] = useState('');
@@ -64,13 +64,21 @@ export const ReservationModal: React.FC = () => {
       <div className="relative w-full max-w-4xl max-h-[96vh] sm:max-h-[92vh] overflow-y-auto bg-[#FAF8F5] text-[#141312] border border-[#E2DDD5] shadow-2xl">
         {/* Top Header */}
         <div className="sticky top-0 z-20 bg-[#FAF8F5] px-4 sm:px-6 md:px-10 py-4 sm:py-5 border-b border-[#E2DDD5] flex items-center justify-between">
-          <div>
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#C5A880] font-semibold block">
-              Sobha Realty Sri Lanka
-            </span>
-            <h2 className="font-serif text-lg sm:text-2xl md:text-3xl text-[#141312] font-light leading-snug">
-              Reserve Single Bedroom Suite
-            </h2>
+          <div className="flex items-center gap-4">
+            <img
+              src={logoLight}
+              alt="Sobha Realty Sri Lanka"
+              className="h-5 sm:h-5.5 max-w-[140px] w-auto object-contain hidden sm:block shrink-0"
+              style={{ maxHeight: '24px' }}
+            />
+            <div>
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#C5A880] font-semibold block">
+                Sobha Realty Sri Lanka
+              </span>
+              <h2 className="font-serif text-lg sm:text-2xl md:text-3xl text-[#141312] font-light leading-snug">
+                Reserve Single Bedroom Suite
+              </h2>
+            </div>
           </div>
           <button
             onClick={closeReservationModal}
@@ -261,19 +269,6 @@ export const ReservationModal: React.FC = () => {
                       />
                     </div>
                   </div>
-                </div>
-
-                {/* Preferences */}
-                <div className="space-y-3 pt-1">
-                  <label className="flex items-center gap-3 text-xs text-[#2A2826] cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={airportTransfer}
-                      onChange={(e) => setAirportTransfer(e.target.checked)}
-                      className="accent-[#141312] w-4 h-4 shrink-0"
-                    />
-                    <span>Add Colombo Airport / City Pick-up Option</span>
-                  </label>
                 </div>
               </div>
 
