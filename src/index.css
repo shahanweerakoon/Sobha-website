@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --color-ivory: #FAF8F5;
+  --color-ivory-light: #FFFDF9;
+  --color-ivory-subtle: #F4EFEB;
+  --color-stone-muted: #EFECE6;
+  --color-stone-line: #E2DDD5;
+  --color-stone-border: #D8D2C7;
+  --color-taupe: #8C827A;
+  --color-taupe-dark: #635C56;
+  --color-charcoal: #2A2826;
+  --color-obsidian: #141312;
+  --color-champagne: #C5A880;
+  --color-champagne-light: #DFC7A5;
+  --color-champagne-dark: #A3865E;
+}
+
+/* Custom smooth luxury styles & mobile responsiveness */
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FAF8F5;
+  color: #2A2826;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fluid Responsive Typography & Text Handling */
+h1, h2, h3, h4, .font-editorial {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+p, span, a, button, label, input, select {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Mobile-First Fluid Font Classes */
+.text-fluid-hero {
+  font-size: clamp(2rem, 7.5vw, 5.5rem);
+  line-height: 1.08;
+}
+
+.text-fluid-h1 {
+  font-size: clamp(1.85rem, 5vw, 4rem);
+  line-height: 1.12;
+}
+
+.text-fluid-h2 {
+  font-size: clamp(1.5rem, 3.8vw, 3rem);
+  line-height: 1.18;
+}
+
+.text-fluid-h3 {
+  font-size: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+.text-fluid-body {
+  font-size: clamp(0.875rem, 1.2vw, 1.125rem);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D2C7;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8C827A;
+}
+
+/* Responsive Image Scaling & Fixes */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-luxury-scale {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+.group:hover .img-luxury-scale {
+  transform: scale(1.04);
+}
+
+/* Tap Target Sizing for Mobile Touch */
+@media (max-width: 640px) {
+  button, input, select {
+    min-height: 42px;
+  }
+}
