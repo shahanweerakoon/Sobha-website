@@ -85,7 +85,7 @@ export const INITIAL_IMAGE_REGISTRY: Record<ImageKey, ImageAsset> = {
     aspectRatio: '16:9',
     url: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=2000&q=85',
     alt: 'Sobha private master bedroom suite with bespoke headboard and private terrace',
-    caption: 'Private bedroom sanctuaries with en-suite marble baths and ocean breezes'
+    caption: 'Private bedroom sanctuaries with en-suite luxury baths and ocean breezes'
   },
   '[LIVING_ROOM_IMAGE]': {
     key: '[LIVING_ROOM_IMAGE]',
@@ -116,12 +116,12 @@ export const INITIAL_IMAGE_REGISTRY: Record<ImageKey, ImageAsset> = {
   },
   '[BATHROOM_IMAGE]': {
     key: '[BATHROOM_IMAGE]',
-    label: 'En-Suite Marble Soaking Bath',
+    label: 'En-Suite Luxury Soaking Bath',
     category: 'bathrooms',
     aspectRatio: '16:9',
     url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=2000&q=85',
     alt: 'Freestanding soaking tub overlooking coastal views with brushed bronze hardware',
-    caption: 'Imported Italian marble, rain showers, and heated vanity mirrors'
+    caption: 'Designer tile finishes, rain showers, and heated vanity mirrors'
   },
   '[BALCONY_IMAGE]': {
     key: '[BALCONY_IMAGE]',
@@ -148,7 +148,7 @@ export const INITIAL_IMAGE_REGISTRY: Record<ImageKey, ImageAsset> = {
     aspectRatio: '16:9',
     url: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=2000&q=85',
     alt: 'Colombo Sri Lanka vibrant oceanfront boulevard and modern skyline',
-    caption: 'Prime Marine Drive address in prestigious Colombo 03'
+    caption: 'Prime Marine Drive address in Sri Lanka'
   },
   '[AMENITIES_IMAGE]': {
     key: '[AMENITIES_IMAGE]',

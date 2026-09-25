@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Spec #18: The Experience - Editorial Storytelling Page
- * Arrive · Unwind · Live · Discover
+ * Arrive · Unwind · Live · Discover with Scroll Text Reveal Animations
  */
 
 import React from 'react';
 import { useNavigation } from '../context/NavigationContext';
 import { SobhaImage } from '../components/SobhaImage';
-import { ArrowRight } from 'lucide-react';
+import { TextReveal } from '../components/TextReveal';
 
 export const ExperiencePage: React.FC = () => {
   const { navigate, openReservationModal } = useNavigation();
@@ -44,7 +44,7 @@ export const ExperiencePage: React.FC = () => {
       title: 'DISCOVER',
       headline: 'Experience the best of Sri Lankan urban living from an exceptional address.',
       imageKey: '[EXPERIENCE_DISCOVER_IMAGE]',
-      narrative: 'Positioned frontline on Marine Drive in prestigious Colombo 03, your address places you within arm’s reach of South Asia’s most captivating coastal capital. Stroll the historic sunset lawns of Galle Face Green, dine on world-renowned mud crabs at the Dutch Hospital, and explore vibrant art galleries in Cinnamon Gardens.',
+      narrative: 'Positioned frontline on Marine Drive in Sri Lanka, your address places you within arm’s reach of South Asia’s most captivating coastal capital. Stroll the historic sunset lawns of Galle Face Green, dine on world-renowned mud crabs at the Dutch Hospital, and explore vibrant art galleries in Cinnamon Gardens.',
       quote: 'Colombo’s cosmopolitan future and tropical soul, right at your doorstep.'
     }
   ];
@@ -54,15 +54,26 @@ export const ExperiencePage: React.FC = () => {
       {/* Editorial Title */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20 md:mb-32 text-center">
         <div className="max-w-3xl mx-auto space-y-4">
-          <span className="text-xs uppercase tracking-[0.35em] text-[#C5A880] font-medium block">
-            The Sobha Residential Journey
-          </span>
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#141312] font-light tracking-tight text-balance">
+          <TextReveal variant="fadeUp" delay={0.1}>
+            <span className="text-xs uppercase tracking-[0.35em] text-[#C5A880] font-medium block">
+              The Sobha Residential Journey
+            </span>
+          </TextReveal>
+
+          <TextReveal
+            as="h1"
+            variant="words"
+            delay={0.2}
+            className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#141312] font-light tracking-tight text-balance"
+          >
             The Living Experience
-          </h1>
-          <p className="text-base sm:text-lg text-[#635C56] font-light leading-relaxed">
-            A thoughtfully curated choreography of arrival, quiet restoration, residential dignity, and coastal exploration.
-          </p>
+          </TextReveal>
+
+          <TextReveal variant="fadeUp" delay={0.4}>
+            <p className="text-base sm:text-lg text-[#635C56] font-light leading-relaxed">
+              A thoughtfully curated choreography of arrival, quiet restoration, residential dignity, and coastal exploration.
+            </p>
+          </TextReveal>
         </div>
       </section>
 
@@ -93,21 +104,33 @@ export const ExperiencePage: React.FC = () => {
               {/* Text */}
               <div className={`lg:col-span-5 space-y-6 ${isReversed ? 'lg:order-1' : ''}`}>
                 <div className="space-y-2">
-                  <span className="text-xs uppercase tracking-[0.3em] text-[#C5A880] font-semibold block">
-                    {ch.title}
-                  </span>
-                  <h2 className="font-serif text-3xl sm:text-4xl text-[#141312] font-light leading-snug">
+                  <TextReveal variant="fadeRight" delay={0.1}>
+                    <span className="text-xs uppercase tracking-[0.3em] text-[#C5A880] font-semibold block">
+                      {ch.title}
+                    </span>
+                  </TextReveal>
+
+                  <TextReveal
+                    as="h2"
+                    variant="words"
+                    delay={0.2}
+                    className="font-serif text-3xl sm:text-4xl text-[#141312] font-light leading-snug"
+                  >
                     {ch.headline}
-                  </h2>
+                  </TextReveal>
                 </div>
 
-                <p className="text-base text-[#635C56] font-light leading-relaxed">
-                  {ch.narrative}
-                </p>
+                <TextReveal variant="fadeUp" delay={0.3}>
+                  <p className="text-base text-[#635C56] font-light leading-relaxed">
+                    {ch.narrative}
+                  </p>
+                </TextReveal>
 
-                <div className="p-6 bg-white border border-[#E2DDD5] italic font-serif text-base text-[#141312] leading-relaxed">
-                  “{ch.quote}”
-                </div>
+                <TextReveal variant="fadeUp" delay={0.4}>
+                  <div className="p-6 bg-white border border-[#E2DDD5] italic font-serif text-base text-[#141312] leading-relaxed">
+                    “{ch.quote}”
+                  </div>
+                </TextReveal>
               </div>
             </article>
           );
@@ -116,31 +139,38 @@ export const ExperiencePage: React.FC = () => {
 
       {/* CTA at Bottom of Story */}
       <section className="mt-32 max-w-[1440px] mx-auto px-6 md:px-12 text-center">
-        <div className="bg-[#141312] text-white p-12 md:p-20 space-y-6 max-w-4xl mx-auto">
-          <span className="text-xs uppercase tracking-[0.3em] text-[#C5A880]">
-            Experience Sobha Sri Lanka
-          </span>
-          <h3 className="font-serif text-3xl sm:text-5xl font-light">
-            Begin Your Stay with Us
-          </h3>
-          <p className="text-sm md:text-base text-white/70 max-w-lg mx-auto font-light">
-            Select from our expansive apartment suites or intimate bedroom suites.
-          </p>
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => openReservationModal()}
-              className="px-8 py-3.5 bg-white text-[#141312] uppercase text-xs tracking-widest font-semibold hover:bg-[#C5A880] hover:text-white transition-colors"
+        <TextReveal variant="fadeUp" delay={0.1}>
+          <div className="bg-[#141312] text-white p-12 md:p-20 space-y-6 max-w-4xl mx-auto">
+            <span className="text-xs uppercase tracking-[0.3em] text-[#C5A880]">
+              Experience Sobha Realty Apartment
+            </span>
+            <TextReveal
+              as="h3"
+              variant="words"
+              delay={0.2}
+              className="font-serif text-3xl sm:text-5xl font-light"
             >
-              Reserve Residence
-            </button>
-            <button
-              onClick={() => navigate('/apartment-suites')}
-              className="px-8 py-3.5 border border-white/30 text-white uppercase text-xs tracking-widest font-medium hover:bg-white/10 transition-colors"
-            >
-              Explore Accommodations
-            </button>
+              Begin Your Stay with Us
+            </TextReveal>
+            <p className="text-sm md:text-base text-white/70 max-w-lg mx-auto font-light">
+              Select from our expansive apartment suites or intimate bedroom suites.
+            </p>
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={() => openReservationModal()}
+                className="px-8 py-3.5 bg-white text-[#141312] uppercase text-xs tracking-widest font-semibold hover:bg-[#C5A880] hover:text-white transition-colors"
+              >
+                Reserve Residence
+              </button>
+              <button
+                onClick={() => navigate('/apartment-suites')}
+                className="px-8 py-3.5 border border-white/30 text-white uppercase text-xs tracking-widest font-medium hover:bg-white/10 transition-colors"
+              >
+                Explore Accommodations
+              </button>
+            </div>
           </div>
-        </div>
+        </TextReveal>
       </section>
     </div>
   );

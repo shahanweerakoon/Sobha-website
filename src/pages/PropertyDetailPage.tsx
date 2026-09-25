@@ -4,18 +4,15 @@
  * 
  * Spec #12: Dedicated Individual Property Page
  * Single Bedroom Apartment Suite
- * Price starting from Rs. 5,500 for 4 hours shown in reservation engine
+ * Price starting from Rs. 5,500 for 4 hours shown in reservation engine with Text Reveal Scroll Animations
  */
 
 import React, { useState } from 'react';
 import { useNavigation } from '../context/NavigationContext';
 import { SobhaImage } from '../components/SobhaImage';
+import { TextReveal } from '../components/TextReveal';
 import { getResidenceBySlug, Residence } from '../data/residences';
 import {
-  Bed,
-  Bath,
-  Maximize2,
-  Users,
   Check,
   ShieldCheck,
   Sparkles,
@@ -36,7 +33,6 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
     return d.toISOString().split('T')[0];
   });
   const [slotDuration, setSlotDuration] = useState<number>(4);
-  const [guestCount, setGuestCount] = useState(2);
 
   const blockCount = Math.max(1, Math.ceil(slotDuration / 4));
   const basePriceLKR = blockCount * 5500;
@@ -67,15 +63,26 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
           </button>
 
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs uppercase tracking-[0.3em] text-[#C5A880] font-medium block">
-              {residence.floor} · {residence.view}
-            </span>
-            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-tight leading-tight">
+            <TextReveal variant="fadeUp" delay={0.1}>
+              <span className="text-xs uppercase tracking-[0.3em] text-[#C5A880] font-medium block">
+                {residence.floor} · {residence.view}
+              </span>
+            </TextReveal>
+
+            <TextReveal
+              as="h1"
+              variant="words"
+              delay={0.2}
+              className="font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-tight leading-tight"
+            >
               {residence.name}
-            </h1>
-            <p className="text-base sm:text-lg text-white/90 font-light leading-relaxed max-w-2xl">
-              A refined single-bedroom apartment suite in the heart of Sri Lanka.
-            </p>
+            </TextReveal>
+
+            <TextReveal variant="fadeUp" delay={0.4}>
+              <p className="text-base sm:text-lg text-white/90 font-light leading-relaxed max-w-2xl">
+                A refined single-bedroom apartment suite in the heart of Sri Lanka.
+              </p>
+            </TextReveal>
           </div>
         </div>
       </section>
@@ -118,34 +125,56 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
           <div className="lg:col-span-8 space-y-24">
             {/* Overview */}
             <div className="space-y-6">
-              <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] font-medium block">
-                The Residence
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-[#141312] font-light">
-                {residence.tagline}
-              </h2>
-              <p className="text-base sm:text-lg text-[#635C56] font-light leading-relaxed">
-                {residence.overview}
-              </p>
-              <div className="p-6 bg-[#EFECE6] border-l-2 border-[#C5A880]">
-                <span className="text-xs uppercase tracking-wider text-[#8C827A] block font-medium mb-1">
-                  Architectural Precision Note
+              <TextReveal variant="fadeRight" delay={0.1}>
+                <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] font-medium block">
+                  The Residence
                 </span>
-                <p className="text-xs md:text-sm text-[#2A2826] font-light leading-relaxed">
-                  {residence.architecturalNote}
+              </TextReveal>
+
+              <TextReveal
+                as="h2"
+                variant="words"
+                delay={0.2}
+                className="font-serif text-3xl sm:text-4xl text-[#141312] font-light"
+              >
+                {residence.tagline}
+              </TextReveal>
+
+              <TextReveal variant="fadeUp" delay={0.3}>
+                <p className="text-base sm:text-lg text-[#635C56] font-light leading-relaxed">
+                  {residence.overview}
                 </p>
-              </div>
+              </TextReveal>
+
+              <TextReveal variant="fadeUp" delay={0.4}>
+                <div className="p-6 bg-[#EFECE6] border-l-2 border-[#C5A880]">
+                  <span className="text-xs uppercase tracking-wider text-[#8C827A] block font-medium mb-1">
+                    Architectural Precision Note
+                  </span>
+                  <p className="text-xs md:text-sm text-[#2A2826] font-light leading-relaxed">
+                    {residence.architecturalNote}
+                  </p>
+                </div>
+              </TextReveal>
             </div>
 
             {/* Spec #12 Detailed Spaces Gallery */}
             <div className="space-y-20 border-t border-[#E2DDD5] pt-16">
               <div className="space-y-2">
-                <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] block">
-                  Spaces & Architecture
-                </span>
-                <h3 className="font-serif text-3xl text-[#141312] font-light">
+                <TextReveal variant="fadeUp" delay={0.1}>
+                  <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] block">
+                    Spaces & Architecture
+                  </span>
+                </TextReveal>
+
+                <TextReveal
+                  as="h3"
+                  variant="words"
+                  delay={0.2}
+                  className="font-serif text-3xl text-[#141312] font-light"
+                >
                   A Guided Tour of the Single Bedroom Apartment Suite
-                </h3>
+                </TextReveal>
               </div>
 
               {/* LIVING AREA */}
@@ -156,23 +185,37 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />
                 <div className="space-y-3">
-                  <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
-                    Space 01 · Living Salon
-                  </span>
-                  <h4 className="font-serif text-2xl text-[#141312]">
+                  <TextReveal variant="fadeRight" delay={0.1}>
+                    <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
+                      Space 01 · Living Salon
+                    </span>
+                  </TextReveal>
+
+                  <TextReveal
+                    as="h4"
+                    variant="words"
+                    delay={0.2}
+                    className="font-serif text-2xl text-[#141312]"
+                  >
                     {residence.spaces.livingArea.title}
-                  </h4>
-                  <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
-                    {residence.spaces.livingArea.description}
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 pt-2">
-                    {residence.spaces.livingArea.features.map((f, i) => (
-                      <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.3}>
+                    <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
+                      {residence.spaces.livingArea.description}
+                    </p>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.4}>
+                    <div className="grid grid-cols-2 gap-2 pt-2">
+                      {residence.spaces.livingArea.features.map((f, i) => (
+                        <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
+                          <span>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </TextReveal>
                 </div>
               </div>
 
@@ -184,23 +227,37 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />
                 <div className="space-y-3">
-                  <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
-                    Space 02 · Sleeping Chamber
-                  </span>
-                  <h4 className="font-serif text-2xl text-[#141312]">
+                  <TextReveal variant="fadeRight" delay={0.1}>
+                    <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
+                      Space 02 · Sleeping Chamber
+                    </span>
+                  </TextReveal>
+
+                  <TextReveal
+                    as="h4"
+                    variant="words"
+                    delay={0.2}
+                    className="font-serif text-2xl text-[#141312]"
+                  >
                     {residence.spaces.bedroom.title}
-                  </h4>
-                  <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
-                    {residence.spaces.bedroom.description}
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 pt-2">
-                    {residence.spaces.bedroom.features.map((f, i) => (
-                      <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.3}>
+                    <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
+                      {residence.spaces.bedroom.description}
+                    </p>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.4}>
+                    <div className="grid grid-cols-2 gap-2 pt-2">
+                      {residence.spaces.bedroom.features.map((f, i) => (
+                        <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
+                          <span>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </TextReveal>
                 </div>
               </div>
 
@@ -213,23 +270,37 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
                     className="w-full h-[400px] md:h-[500px] object-cover"
                   />
                   <div className="space-y-3">
-                    <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
-                      Space 03 · Kitchenette & Refreshments
-                    </span>
-                    <h4 className="font-serif text-2xl text-[#141312]">
+                    <TextReveal variant="fadeRight" delay={0.1}>
+                      <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
+                        Space 03 · Kitchenette & Refreshments
+                      </span>
+                    </TextReveal>
+
+                    <TextReveal
+                      as="h4"
+                      variant="words"
+                      delay={0.2}
+                      className="font-serif text-2xl text-[#141312]"
+                    >
                       {residence.spaces.kitchen.title}
-                    </h4>
-                    <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
-                      {residence.spaces.kitchen.description}
-                    </p>
-                    <div className="grid grid-cols-2 gap-2 pt-2">
-                      {residence.spaces.kitchen.features.map((f, i) => (
-                        <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
-                          <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
-                          <span>{f}</span>
-                        </div>
-                      ))}
-                    </div>
+                    </TextReveal>
+
+                    <TextReveal variant="fadeUp" delay={0.3}>
+                      <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
+                        {residence.spaces.kitchen.description}
+                      </p>
+                    </TextReveal>
+
+                    <TextReveal variant="fadeUp" delay={0.4}>
+                      <div className="grid grid-cols-2 gap-2 pt-2">
+                        {residence.spaces.kitchen.features.map((f, i) => (
+                          <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
+                            <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
+                            <span>{f}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </TextReveal>
                   </div>
                 </div>
               )}
@@ -242,23 +313,37 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />
                 <div className="space-y-3">
-                  <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
-                    Space 04 · Marble En-Suite Spa
-                  </span>
-                  <h4 className="font-serif text-2xl text-[#141312]">
+                  <TextReveal variant="fadeRight" delay={0.1}>
+                    <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
+                      Space 04 · Marble En-Suite Spa
+                    </span>
+                  </TextReveal>
+
+                  <TextReveal
+                    as="h4"
+                    variant="words"
+                    delay={0.2}
+                    className="font-serif text-2xl text-[#141312]"
+                  >
                     {residence.spaces.bathroom.title}
-                  </h4>
-                  <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
-                    {residence.spaces.bathroom.description}
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 pt-2">
-                    {residence.spaces.bathroom.features.map((f, i) => (
-                      <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.3}>
+                    <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
+                      {residence.spaces.bathroom.description}
+                    </p>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.4}>
+                    <div className="grid grid-cols-2 gap-2 pt-2">
+                      {residence.spaces.bathroom.features.map((f, i) => (
+                        <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
+                          <span>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </TextReveal>
                 </div>
               </div>
 
@@ -270,23 +355,37 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />
                 <div className="space-y-3">
-                  <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
-                    Space 05 · Covered Sunset Balcony
-                  </span>
-                  <h4 className="font-serif text-2xl text-[#141312]">
+                  <TextReveal variant="fadeRight" delay={0.1}>
+                    <span className="text-xs uppercase tracking-widest text-[#C5A880] font-medium">
+                      Space 05 · Covered Sunset Balcony
+                    </span>
+                  </TextReveal>
+
+                  <TextReveal
+                    as="h4"
+                    variant="words"
+                    delay={0.2}
+                    className="font-serif text-2xl text-[#141312]"
+                  >
                     {residence.spaces.balcony.title}
-                  </h4>
-                  <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
-                    {residence.spaces.balcony.description}
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 pt-2">
-                    {residence.spaces.balcony.features.map((f, i) => (
-                      <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.3}>
+                    <p className="text-sm md:text-base text-[#635C56] font-light leading-relaxed">
+                      {residence.spaces.balcony.description}
+                    </p>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.4}>
+                    <div className="grid grid-cols-2 gap-2 pt-2">
+                      {residence.spaces.balcony.features.map((f, i) => (
+                        <div key={i} className="text-xs text-[#2A2826] flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
+                          <span>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </TextReveal>
                 </div>
               </div>
             </div>
@@ -294,29 +393,39 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = ({ slug }) 
             {/* Amenities */}
             <div className="border-t border-[#E2DDD5] pt-16 space-y-8">
               <div>
-                <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] block">
-                  Included Privileges
-                </span>
-                <h3 className="font-serif text-3xl text-[#141312] font-light mt-1">
+                <TextReveal variant="fadeUp" delay={0.1}>
+                  <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] block">
+                    Included Privileges
+                  </span>
+                </TextReveal>
+
+                <TextReveal
+                  as="h3"
+                  variant="words"
+                  delay={0.2}
+                  className="font-serif text-3xl text-[#141312] font-light mt-1"
+                >
                   Residence Amenities
-                </h3>
+                </TextReveal>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {residence.amenities.map((cat, i) => (
-                  <div key={i} className="bg-white p-6 border border-[#E2DDD5]">
-                    <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#141312] mb-4">
-                      {cat.category}
-                    </h4>
-                    <ul className="space-y-2.5">
-                      {cat.items.map((item, idx) => (
-                        <li key={idx} className="text-xs text-[#635C56] flex items-center gap-2.5">
-                          <Check className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <TextReveal key={i} variant="fadeUp" delay={0.1 * i}>
+                    <div className="bg-white p-6 border border-[#E2DDD5] h-full">
+                      <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#141312] mb-4">
+                        {cat.category}
+                      </h4>
+                      <ul className="space-y-2.5">
+                        {cat.items.map((item, idx) => (
+                          <li key={idx} className="text-xs text-[#635C56] flex items-center gap-2.5">
+                            <Check className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </TextReveal>
                 ))}
               </div>
             </div>

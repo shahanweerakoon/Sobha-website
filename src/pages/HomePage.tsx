@@ -3,13 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Sobha Realty Sri Lanka - Flagship Homepage
- * Highly Responsive Mobile & Desktop Layout
+ * Highly Responsive Mobile & Desktop Layout with Text Reveal Scroll Animations
  */
 
 import React from 'react';
 import { useNavigation } from '../context/NavigationContext';
 import { SobhaImage } from '../components/SobhaImage';
 import { FeaturedSlider } from '../components/FeaturedSlider';
+import { TextReveal } from '../components/TextReveal';
 import { SINGLE_BEDROOM_APARTMENT_SUITE } from '../data/residences';
 import { AMENITIES_DATA } from '../data/amenities';
 import { getImage } from '../data/images';
@@ -37,34 +38,46 @@ export const HomePage: React.FC = () => {
         {/* Hero Overlay */}
         <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 w-full text-white pt-24 sm:pt-0">
           <div className="max-w-3xl space-y-4 sm:space-y-6">
-            <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#C5A880] font-medium">
-              <span>Colombo, Sri Lanka</span>
-              <span className="hidden sm:inline">·</span>
-              <span>Single Bedroom Suite</span>
-            </div>
+            <TextReveal variant="fadeRight" delay={0.2}>
+              <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#C5A880] font-medium">
+                <span>Colombo, Sri Lanka</span>
+                <span className="hidden sm:inline">·</span>
+                <span>Single Bedroom Suite</span>
+              </div>
+            </TextReveal>
 
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.08] text-balance">
+            <TextReveal
+              as="h1"
+              variant="words"
+              delay={0.4}
+              duration={0.8}
+              className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.08] text-balance"
+            >
               Elevated Living, Redefined
-            </h1>
+            </TextReveal>
 
-            <p className="text-sm sm:text-base md:text-xl text-white/90 font-light max-w-xl leading-relaxed">
-              Experience ultra-luxury single bedroom apartment suite living with ocean views, marble bath, and complete privacy.
-            </p>
+            <TextReveal variant="fadeUp" delay={0.7} duration={0.8}>
+              <p className="text-sm sm:text-base md:text-xl text-white/90 font-light max-w-xl leading-relaxed">
+                Experience ultra-luxury single bedroom apartment suite living with ocean views, marble bath, and complete privacy.
+              </p>
+            </TextReveal>
 
-            <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
-              <button
-                onClick={() => openReservationModal()}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-[#141312] uppercase text-[11px] sm:text-xs tracking-[0.18em] sm:tracking-[0.22em] font-semibold hover:bg-[#C5A880] hover:text-white transition-all duration-300 text-center shadow-lg"
-              >
-                Reserve Your Suite
-              </button>
-              <button
-                onClick={() => navigate('/apartment-suites/single-bedroom-apartment-suite')}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-black/40 backdrop-blur-md border border-white/30 text-white uppercase text-[11px] sm:text-xs tracking-[0.18em] sm:tracking-[0.22em] font-medium hover:bg-white hover:text-[#141312] transition-all duration-300 text-center"
-              >
-                Explore Apartment Suite
-              </button>
-            </div>
+            <TextReveal variant="fadeUp" delay={0.9}>
+              <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+                <button
+                  onClick={() => openReservationModal()}
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-[#141312] uppercase text-[11px] sm:text-xs tracking-[0.18em] sm:tracking-[0.22em] font-semibold hover:bg-[#C5A880] hover:text-white transition-all duration-300 text-center shadow-lg"
+                >
+                  Reserve Your Suite
+                </button>
+                <button
+                  onClick={() => navigate('/apartment-suites/single-bedroom-apartment-suite')}
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-black/40 backdrop-blur-md border border-white/30 text-white uppercase text-[11px] sm:text-xs tracking-[0.18em] sm:tracking-[0.22em] font-medium hover:bg-white hover:text-[#141312] transition-all duration-300 text-center"
+                >
+                  Explore Apartment Suite
+                </button>
+              </div>
+            </TextReveal>
           </div>
         </div>
 
@@ -86,49 +99,65 @@ export const HomePage: React.FC = () => {
               className="w-full h-auto min-h-[260px] sm:min-h-[360px] object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
             />
             <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-[#141312]/80 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 text-white text-[9px] sm:text-[11px] tracking-widest uppercase">
-              Marine Drive · Colombo 03
+              Marine Drive · Sri Lanka
             </div>
           </div>
 
           {/* Right Copy */}
           <div className="lg:col-span-5 space-y-6 sm:space-y-8">
             <div className="space-y-2 sm:space-y-3">
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#8C827A] font-medium block">
-                The Sobha Standard
-              </span>
-              <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#141312] font-light leading-[1.15] text-balance">
-                A Single Bedroom Apartment Suite Sanctuary
-              </h2>
-            </div>
+              <TextReveal variant="fadeRight" delay={0.1}>
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#8C827A] font-medium block">
+                  The Sobha Standard
+                </span>
+              </TextReveal>
 
-            <p className="text-sm sm:text-base text-[#635C56] font-light leading-relaxed">
-              Rising above the tranquil rhythms of Colombo’s coastline, Sobha Sri Lanka introduces an exclusive single bedroom apartment suite offering. Designed for guests seeking ultimate spatial privacy, refined aesthetics, and flexible stay experiences.
-            </p>
-
-            <p className="text-sm sm:text-base text-[#635C56] font-light leading-relaxed">
-              Every detail reflects Sobha’s renowned philosophy of backward integration—featuring Italian Statuario marble, acoustic double-glazed windows, handcrafted teak furnishings, and uninterrupted views of the Indian Ocean horizon.
-            </p>
-
-            <div className="pt-4 border-t border-[#E2DDD5] grid grid-cols-2 gap-4 sm:gap-6 text-xs">
-              <div>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#8C827A] block">Living Architecture</span>
-                <span className="font-serif text-base sm:text-lg text-[#141312] mt-0.5 block font-semibold">Uncompromised Space</span>
-              </div>
-              <div>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#8C827A] block">Hospitality</span>
-                <span className="font-serif text-base sm:text-lg text-[#141312] mt-0.5 block">24/7 VIP Concierge</span>
-              </div>
-            </div>
-
-            <div>
-              <button
-                onClick={() => navigate('/about')}
-                className="group inline-flex items-center gap-2.5 sm:gap-3 text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] font-medium text-[#141312] hover:text-[#C5A880] transition-colors"
+              <TextReveal
+                as="h2"
+                variant="words"
+                delay={0.2}
+                className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#141312] font-light leading-[1.15] text-balance"
               >
-                <span>Read the Architectural Story</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#C5A880]" />
-              </button>
+                A Single Bedroom Apartment Suite Sanctuary
+              </TextReveal>
             </div>
+
+            <TextReveal variant="fadeUp" delay={0.3}>
+              <p className="text-sm sm:text-base text-[#635C56] font-light leading-relaxed">
+                Rising above the tranquil rhythms of Colombo’s coastline, Sobha Realty Apartment introduces an exclusive single bedroom apartment suite offering. Designed for guests seeking ultimate spatial privacy, refined aesthetics, and flexible stay experiences.
+              </p>
+            </TextReveal>
+
+            <TextReveal variant="fadeUp" delay={0.4}>
+              <p className="text-sm sm:text-base text-[#635C56] font-light leading-relaxed">
+                Every detail reflects Sobha’s renowned philosophy of backward integration—featuring Italian Statuario marble, acoustic double-glazed windows, handcrafted teak furnishings, and uninterrupted views of the Indian Ocean horizon.
+              </p>
+            </TextReveal>
+
+            <TextReveal variant="fadeUp" delay={0.5}>
+              <div className="pt-4 border-t border-[#E2DDD5] grid grid-cols-2 gap-4 sm:gap-6 text-xs">
+                <div>
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#8C827A] block">Living Architecture</span>
+                  <span className="font-serif text-base sm:text-lg text-[#141312] mt-0.5 block font-semibold">Uncompromised Space</span>
+                </div>
+                <div>
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#8C827A] block">Hospitality</span>
+                  <span className="font-serif text-base sm:text-lg text-[#141312] mt-0.5 block">24/7 VIP Concierge</span>
+                </div>
+              </div>
+            </TextReveal>
+
+            <TextReveal variant="fadeRight" delay={0.6}>
+              <div>
+                <button
+                  onClick={() => navigate('/about')}
+                  className="group inline-flex items-center gap-2.5 sm:gap-3 text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] font-medium text-[#141312] hover:text-[#C5A880] transition-colors"
+                >
+                  <span>Read the Architectural Story</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#C5A880]" />
+                </button>
+              </div>
+            </TextReveal>
           </div>
         </div>
       </section>
@@ -138,15 +167,26 @@ export const HomePage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 md:mb-24 space-y-3 sm:space-y-4">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#8C827A] font-medium block">
-              Flagship Accommodation
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl md:text-6xl text-[#141312] font-light tracking-tight">
+            <TextReveal variant="fadeUp" delay={0.1}>
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#8C827A] font-medium block">
+                Flagship Accommodation
+              </span>
+            </TextReveal>
+
+            <TextReveal
+              as="h2"
+              variant="words"
+              delay={0.2}
+              className="font-serif text-2xl sm:text-4xl md:text-6xl text-[#141312] font-light tracking-tight"
+            >
               Single Bedroom Apartment Suite
-            </h2>
-            <p className="text-sm sm:text-base text-[#635C56] font-light leading-relaxed">
-              Thoughtfully designed with full access to luxury building amenities.
-            </p>
+            </TextReveal>
+
+            <TextReveal variant="fadeUp" delay={0.3}>
+              <p className="text-sm sm:text-base text-[#635C56] font-light leading-relaxed">
+                Thoughtfully designed with full access to luxury building amenities.
+              </p>
+            </TextReveal>
           </div>
 
           {/* Featured Large Card */}
@@ -180,54 +220,69 @@ export const HomePage: React.FC = () => {
 
               <div className="lg:col-span-5 space-y-5 sm:space-y-6">
                 <div>
-                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#C5A880] font-medium block mb-1.5">
-                    Exclusive Single Residence
-                  </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#141312] font-light">
+                  <TextReveal variant="fadeRight" delay={0.1}>
+                    <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#C5A880] font-medium block mb-1.5">
+                      Exclusive Single Residence
+                    </span>
+                  </TextReveal>
+
+                  <TextReveal
+                    as="h3"
+                    variant="words"
+                    delay={0.2}
+                    className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#141312] font-light"
+                  >
                     {SINGLE_BEDROOM_APARTMENT_SUITE.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-base text-[#635C56] font-light mt-2 sm:mt-3 leading-relaxed">
-                    {SINGLE_BEDROOM_APARTMENT_SUITE.overview}
-                  </p>
+                  </TextReveal>
+
+                  <TextReveal variant="fadeUp" delay={0.3}>
+                    <p className="text-xs sm:text-sm md:text-base text-[#635C56] font-light mt-2 sm:mt-3 leading-relaxed">
+                      {SINGLE_BEDROOM_APARTMENT_SUITE.overview}
+                    </p>
+                  </TextReveal>
                 </div>
 
                 {/* Specs */}
-                <div className="py-3 sm:py-4 border-y border-[#E2DDD5] grid grid-cols-2 gap-3 sm:gap-4 text-xs text-[#2A2826]">
-                  <div className="flex items-center gap-2">
-                    <Bed className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C827A] shrink-0" />
-                    <span className="text-[11px] sm:text-xs">Single Bedroom</span>
+                <TextReveal variant="fadeUp" delay={0.4}>
+                  <div className="py-3 sm:py-4 border-y border-[#E2DDD5] grid grid-cols-2 gap-3 sm:gap-4 text-xs text-[#2A2826]">
+                    <div className="flex items-center gap-2">
+                      <Bed className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C827A] shrink-0" />
+                      <span className="text-[11px] sm:text-xs">Single Bedroom</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Bath className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C827A] shrink-0" />
+                      <span className="text-[11px] sm:text-xs">En-Suite Marble Bath</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C827A] shrink-0" />
+                      <span className="text-[11px] sm:text-xs">850 sq ft (79 m²)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C827A] shrink-0" />
+                      <span className="text-[11px] sm:text-xs">Up to 2 Guests</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Bath className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C827A] shrink-0" />
-                    <span className="text-[11px] sm:text-xs">En-Suite Marble Bath</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C827A] shrink-0" />
-                    <span className="text-[11px] sm:text-xs">850 sq ft (79 m²)</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C827A] shrink-0" />
-                    <span className="text-[11px] sm:text-xs">Up to 2 Guests</span>
-                  </div>
-                </div>
+                </TextReveal>
 
                 {/* CTA Box */}
-                <div className="p-4 sm:p-5 bg-[#EFECE6] border border-[#D8D2C7] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
-                  <div>
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#8C827A] block">
-                      Reservation Privileges
-                    </span>
-                    <span className="font-serif text-lg sm:text-xl text-[#141312] font-semibold block">
-                      Flexible Duration Options
-                    </span>
+                <TextReveal variant="fadeUp" delay={0.5}>
+                  <div className="p-4 sm:p-5 bg-[#EFECE6] border border-[#D8D2C7] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                    <div>
+                      <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#8C827A] block">
+                        Reservation Privileges
+                      </span>
+                      <span className="font-serif text-lg sm:text-xl text-[#141312] font-semibold block">
+                        Flexible Duration Options
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => openReservationModal()}
+                      className="w-full sm:w-auto px-6 py-3 sm:py-3.5 bg-[#141312] text-white text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] font-semibold hover:bg-[#C5A880] transition-colors text-center"
+                    >
+                      Reserve Suite
+                    </button>
                   </div>
-                  <button
-                    onClick={() => openReservationModal()}
-                    className="w-full sm:w-auto px-6 py-3 sm:py-3.5 bg-[#141312] text-white text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] font-semibold hover:bg-[#C5A880] transition-colors text-center"
-                  >
-                    Reserve Suite
-                  </button>
-                </div>
+                </TextReveal>
               </div>
             </div>
           </div>
@@ -247,15 +302,26 @@ export const HomePage: React.FC = () => {
           <div className="absolute inset-0 bg-black/45 backdrop-brightness-95" />
         </div>
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-2xl mx-auto space-y-3 sm:space-y-4 text-white">
-          <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#C5A880] block">
-            The Living Philosophy
-          </span>
-          <h2 className="font-serif text-2xl sm:text-4xl md:text-6xl tracking-wide font-light text-balance leading-tight">
+          <TextReveal variant="fadeUp" delay={0.1}>
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#C5A880] block">
+              The Living Philosophy
+            </span>
+          </TextReveal>
+
+          <TextReveal
+            as="h2"
+            variant="words"
+            delay={0.2}
+            className="font-serif text-2xl sm:text-4xl md:text-6xl tracking-wide font-light text-balance leading-tight"
+          >
             Space to Live Beautifully
-          </h2>
-          <p className="text-xs sm:text-sm md:text-base text-white/80 font-light max-w-lg mx-auto leading-relaxed">
-            Where expansive dimensions, natural materials, and the warmth of tropical sunlight elevate everyday moments into tranquil memories.
-          </p>
+          </TextReveal>
+
+          <TextReveal variant="fadeUp" delay={0.4}>
+            <p className="text-xs sm:text-sm md:text-base text-white/80 font-light max-w-lg mx-auto leading-relaxed">
+              Where expansive dimensions, natural materials, and the warmth of tropical sunlight elevate everyday moments into tranquil memories.
+            </p>
+          </TextReveal>
         </div>
       </section>
 
@@ -264,44 +330,54 @@ export const HomePage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4 sm:gap-6">
             <div>
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#8C827A] font-medium block mb-1.5 sm:mb-2">
-                Five-Star Residential Privileges
-              </span>
-              <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#141312] font-light">
+              <TextReveal variant="fadeRight" delay={0.1}>
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#8C827A] font-medium block mb-1.5 sm:mb-2">
+                  Five-Star Residential Privileges
+                </span>
+              </TextReveal>
+
+              <TextReveal
+                as="h2"
+                variant="words"
+                delay={0.2}
+                className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#141312] font-light"
+              >
                 Every Detail, Considered
-              </h2>
+              </TextReveal>
             </div>
-            <button
-              onClick={() => navigate('/amenities')}
-              className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] font-semibold text-[#141312] hover:text-[#C5A880] transition-colors self-start md:self-auto"
-            >
-              <span>Explore All Amenities</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#C5A880]" />
-            </button>
+
+            <TextReveal variant="fadeLeft" delay={0.3}>
+              <button
+                onClick={() => navigate('/amenities')}
+                className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] font-semibold text-[#141312] hover:text-[#C5A880] transition-colors self-start md:self-auto"
+              >
+                <span>Explore All Amenities</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#C5A880]" />
+              </button>
+            </TextReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {AMENITIES_DATA.map((category) => (
-              <div
-                key={category.id}
-                className="bg-white p-6 sm:p-8 border border-[#E2DDD5] flex flex-col justify-between hover:border-[#C5A880] transition-colors"
-              >
-                <div>
-                  <div className="mb-4 sm:mb-6 overflow-hidden">
-                    <SobhaImage
-                      imageKey={category.imageKey}
-                      aspectRatio="16:9"
-                      className="w-full h-40 sm:h-48 object-cover"
-                    />
+            {AMENITIES_DATA.map((category, index) => (
+              <TextReveal key={category.id} variant="fadeUp" delay={0.15 * index}>
+                <div className="bg-white p-6 sm:p-8 border border-[#E2DDD5] flex flex-col justify-between hover:border-[#C5A880] transition-colors h-full">
+                  <div>
+                    <div className="mb-4 sm:mb-6 overflow-hidden">
+                      <SobhaImage
+                        imageKey={category.imageKey}
+                        aspectRatio="16:9"
+                        className="w-full h-40 sm:h-48 object-cover"
+                      />
+                    </div>
+                    <h3 className="font-serif text-xl sm:text-2xl text-[#141312] mb-1.5 sm:mb-2">
+                      {category.name}
+                    </h3>
+                    <p className="text-xs text-[#635C56] font-light mb-4 sm:mb-6 leading-relaxed">
+                      {category.subtitle}
+                    </p>
                   </div>
-                  <h3 className="font-serif text-xl sm:text-2xl text-[#141312] mb-1.5 sm:mb-2">
-                    {category.name}
-                  </h3>
-                  <p className="text-xs text-[#635C56] font-light mb-4 sm:mb-6 leading-relaxed">
-                    {category.subtitle}
-                  </p>
                 </div>
-              </div>
+              </TextReveal>
             ))}
           </div>
         </div>
@@ -310,29 +386,43 @@ export const HomePage: React.FC = () => {
       {/* CTA Reservation Banner */}
       <section className="bg-[#141312] text-white py-16 sm:py-20 md:py-28 text-center px-4 sm:px-6">
         <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#C5A880]">
-            Single Bedroom Apartment Suite · Colombo 03
-          </span>
-          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-light text-balance leading-tight">
+          <TextReveal variant="fadeUp" delay={0.1}>
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#C5A880]">
+              Single Bedroom Apartment Suite · Sri Lanka
+            </span>
+          </TextReveal>
+
+          <TextReveal
+            as="h2"
+            variant="words"
+            delay={0.2}
+            className="font-serif text-2xl sm:text-4xl md:text-5xl font-light text-balance leading-tight"
+          >
             Reserve Your Single Bedroom Apartment Suite
-          </h2>
-          <p className="text-xs sm:text-sm md:text-base text-white/70 font-light max-w-lg mx-auto leading-relaxed">
-            Direct reservation privileges, best rate guarantee, and flexible stay booking options.
-          </p>
-          <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <button
-              onClick={() => openReservationModal()}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-[#141312] uppercase text-xs tracking-[0.18em] sm:tracking-[0.2em] font-semibold hover:bg-[#C5A880] hover:text-white transition-colors text-center"
-            >
-              Reserve Your Suite
-            </button>
-            <button
-              onClick={() => navigate('/contact')}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 border border-white/30 text-white uppercase text-xs tracking-[0.18em] sm:tracking-[0.2em] font-medium hover:bg-white/10 transition-colors text-center"
-            >
-              Speak to Concierge
-            </button>
-          </div>
+          </TextReveal>
+
+          <TextReveal variant="fadeUp" delay={0.4}>
+            <p className="text-xs sm:text-sm md:text-base text-white/70 font-light max-w-lg mx-auto leading-relaxed">
+              Direct reservation privileges, best rate guarantee, and flexible stay booking options.
+            </p>
+          </TextReveal>
+
+          <TextReveal variant="fadeUp" delay={0.5}>
+            <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <button
+                onClick={() => openReservationModal()}
+                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-[#141312] uppercase text-xs tracking-[0.18em] sm:tracking-[0.2em] font-semibold hover:bg-[#C5A880] hover:text-white transition-colors text-center"
+              >
+                Reserve Your Suite
+              </button>
+              <button
+                onClick={() => navigate('/contact')}
+                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 border border-white/30 text-white uppercase text-xs tracking-[0.18em] sm:tracking-[0.2em] font-medium hover:bg-white/10 transition-colors text-center"
+              >
+                Speak to Concierge
+              </button>
+            </div>
+          </TextReveal>
         </div>
       </section>
     </div>

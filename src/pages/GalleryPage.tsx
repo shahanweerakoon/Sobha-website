@@ -4,12 +4,13 @@
  * 
  * Spec #16: Architectural Gallery Page
  * Categories: Architecture, Apartments, Bedrooms, Living Spaces, Kitchens, Bathrooms, Amenities, Views, Lifestyle
- * Fullscreen Lightbox & Masonry Layout
+ * Fullscreen Lightbox & Masonry Layout with Text Reveal Scroll Animations
  */
 
 import React, { useState, useEffect } from 'react';
 import { SobhaImage } from '../components/SobhaImage';
-import { GALLERY_ITEMS, GALLERY_CATEGORIES, GalleryItem } from '../data/gallery';
+import { TextReveal } from '../components/TextReveal';
+import { GALLERY_ITEMS, GALLERY_CATEGORIES } from '../data/gallery';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
 export const GalleryPage: React.FC = () => {
@@ -55,15 +56,26 @@ export const GalleryPage: React.FC = () => {
       {/* Title */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16 text-center">
         <div className="max-w-3xl mx-auto space-y-4">
-          <span className="text-xs uppercase tracking-[0.35em] text-[#C5A880] font-medium block">
-            Visual Portfolio
-          </span>
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#141312] font-light tracking-tight text-balance">
+          <TextReveal variant="fadeUp" delay={0.1}>
+            <span className="text-xs uppercase tracking-[0.35em] text-[#C5A880] font-medium block">
+              Visual Portfolio
+            </span>
+          </TextReveal>
+
+          <TextReveal
+            as="h1"
+            variant="words"
+            delay={0.2}
+            className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#141312] font-light tracking-tight text-balance"
+          >
             Architectural Gallery
-          </h1>
-          <p className="text-base sm:text-lg text-[#635C56] font-light leading-relaxed">
-            Explore the spatial geometry, material textures, and natural daylight of Sobha Sri Lanka residences.
-          </p>
+          </TextReveal>
+
+          <TextReveal variant="fadeUp" delay={0.4}>
+            <p className="text-base sm:text-lg text-[#635C56] font-light leading-relaxed">
+              Explore the spatial geometry, material textures, and natural daylight of Sobha Realty Apartment residences.
+            </p>
+          </TextReveal>
         </div>
       </section>
 
@@ -90,38 +102,39 @@ export const GalleryPage: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item, idx) => (
-            <article
-              key={item.id}
-              onClick={() => openLightbox(idx)}
-              className="group cursor-pointer bg-white border border-[#E2DDD5] p-4 hover:border-[#C5A880] transition-all duration-300 shadow-sm"
-            >
-              <div className="relative overflow-hidden aspect-[4/3]">
-                <SobhaImage
-                  imageKey={item.imageKey}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                  <div className="p-3 bg-white/20 backdrop-blur-md rounded-full">
-                    <Maximize2 className="w-5 h-5 text-white" />
+            <TextReveal key={item.id} variant="fadeUp" delay={0.08 * (idx % 6)}>
+              <article
+                onClick={() => openLightbox(idx)}
+                className="group cursor-pointer bg-white border border-[#E2DDD5] p-4 hover:border-[#C5A880] transition-all duration-300 shadow-sm h-full"
+              >
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <SobhaImage
+                    imageKey={item.imageKey}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <div className="p-3 bg-white/20 backdrop-blur-md rounded-full">
+                      <Maximize2 className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute top-3 left-3 bg-[#141312]/80 text-[#C5A880] text-[10px] uppercase tracking-widest px-2.5 py-1">
+                    {item.categoryLabel}
                   </div>
                 </div>
-                <div className="absolute top-3 left-3 bg-[#141312]/80 text-[#C5A880] text-[10px] uppercase tracking-widest px-2.5 py-1">
-                  {item.categoryLabel}
-                </div>
-              </div>
 
-              <div className="pt-4 space-y-1">
-                <span className="text-[10px] uppercase tracking-wider text-[#8C827A] block">
-                  {item.location}
-                </span>
-                <h3 className="font-serif text-xl text-[#141312] group-hover:text-[#C5A880] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[#635C56] font-light leading-relaxed line-clamp-2">
-                  {item.caption}
-                </p>
-              </div>
-            </article>
+                <div className="pt-4 space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C827A] block">
+                    {item.location}
+                  </span>
+                  <h3 className="font-serif text-xl text-[#141312] group-hover:text-[#C5A880] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#635C56] font-light leading-relaxed line-clamp-2">
+                    {item.caption}
+                  </p>
+                </div>
+              </article>
+            </TextReveal>
           ))}
         </div>
       </div>

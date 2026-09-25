@@ -5,7 +5,8 @@
 
 import React from 'react';
 import { useNavigation } from '../context/NavigationContext';
-import { ArrowUp, Camera, ShieldCheck, MapPin, Mail, Phone } from 'lucide-react';
+import { TextReveal } from './TextReveal';
+import { ArrowUp, MapPin, Mail, Phone } from 'lucide-react';
 import logoDark from '../assets/images/logo/sobha-logo-dark.png';
 
 export const Footer: React.FC = () => {
@@ -24,21 +25,26 @@ export const Footer: React.FC = () => {
             <div>
               <img
                 src={logoDark}
-                alt="Sobha Realty Sri Lanka"
+                alt="Sobha Realty Apartment"
                 className="h-6 md:h-7 max-w-[170px] w-auto object-contain shrink-0"
                 style={{ maxHeight: '80px' }}
               />
             </div>
-            <p className="text-sm md:text-base text-[#8C827A] font-light leading-relaxed max-w-md">
-              A bespoke convergence of international architectural mastery, five-star hospitality, and the timeless tropical elegance of Sri Lanka’s coastal capital.
-            </p>
-            <div className="pt-2 flex items-center gap-6 text-xs text-[#C5A880] tracking-widest uppercase">
-              <span>Colombo 03</span>
-              <span>·</span>
-              <span>Indian Ocean</span>
-              <span>·</span>
-              <span>Private Residences</span>
-            </div>
+            <TextReveal variant="fadeUp" delay={0.1}>
+              <p className="text-sm md:text-base text-[#8C827A] font-light leading-relaxed max-w-md">
+                A bespoke convergence of international architectural mastery, five-star hospitality, and the timeless tropical elegance of Sri Lanka’s coastal capital.
+              </p>
+            </TextReveal>
+
+            <TextReveal variant="fadeUp" delay={0.2}>
+              <div className="pt-2 flex items-center gap-6 text-xs text-[#C5A880] tracking-widest uppercase">
+                <span>Sri Lanka</span>
+                <span>·</span>
+                <span>Indian Ocean</span>
+                <span>·</span>
+                <span>Private Residences</span>
+              </div>
+            </TextReveal>
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
@@ -50,27 +56,22 @@ export const Footer: React.FC = () => {
               <ul className="space-y-3 text-sm text-[#8C827A]">
                 <li>
                   <button onClick={() => navigate('/apartment-suites')} className="hover:text-white transition-colors text-left">
-                    Apartment Suites
+                    Single Bedroom Apartment Suite
                   </button>
                 </li>
                 <li>
                   <button onClick={() => navigate('/bedroom-suites')} className="hover:text-white transition-colors text-left">
-                    Apartment Bedroom Suites
+                    Apartment Bedroom Suite Rentals
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigate('/apartment-suites/grand-ocean-penthouse')} className="hover:text-white transition-colors text-left">
-                    Grand Ocean Penthouse
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => navigate('/bedroom-suites/royal-oceanfront-master-suite')} className="hover:text-white transition-colors text-left">
-                    Royal Oceanfront Suite
+                  <button onClick={() => openReservationModal()} className="hover:text-white transition-colors text-left">
+                    Flexible Hourly & Daily Stays
                   </button>
                 </li>
                 <li>
                   <button onClick={() => openReservationModal()} className="text-white hover:text-[#C5A880] transition-colors text-left font-medium">
-                    Reserve Residence →
+                    Reserve Suite Now →
                   </button>
                 </li>
               </ul>
@@ -118,7 +119,7 @@ export const Footer: React.FC = () => {
               <div className="space-y-3 text-xs md:text-sm text-[#8C827A] leading-relaxed">
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
-                  <span>Marine Drive, Kollupitiya, Colombo 03, Sri Lanka</span>
+                  <span>Marine Drive, Kollupitiya, Sri Lanka</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-[#C5A880] shrink-0" />
@@ -136,21 +137,13 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[#635C56]">
           <div className="flex flex-wrap items-center gap-6">
-            <span>© {new Date().getFullYear()} Sobha Realty Sri Lanka. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} Sobha Realty Apartment. All rights reserved.</span>
             <span>·</span>
             <span>Prestige · Refined Living · Architecture · Comfort</span>
           </div>
 
           <div className="flex items-center gap-6">
-            {/* Spec #25 Image Asset Management Tool button */}
-            <button
-              onClick={openImageManager}
-              className="inline-flex items-center gap-1.5 text-xs text-[#8C827A] hover:text-[#C5A880] transition-colors py-1 px-2 border border-white/10 hover:border-[#C5A880]/40"
-              title="View and manage image placeholder mapping"
-            >
-              <Camera className="w-3.5 h-3.5 text-[#C5A880]" />
-              <span>Image Placeholder System</span>
-            </button>
+            {/* Spec #25 Image Asset Management Tool button (Temporarily hidden) */}
 
             <button
               onClick={scrollToTop}

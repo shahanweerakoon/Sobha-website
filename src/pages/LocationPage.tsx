@@ -4,13 +4,14 @@
  * 
  * Spec #17: Location Page
  * Heading: "CONNECTED TO THE CITY. ABOVE THE ORDINARY."
- * Verified Nearby Landmarks and Distances in Colombo, Sri Lanka
+ * Verified Nearby Landmarks and Distances in Colombo, Sri Lanka with Text Reveal Scroll Animations
  */
 
 import React, { useState } from 'react';
 import { SobhaImage } from '../components/SobhaImage';
+import { TextReveal } from '../components/TextReveal';
 import { PROPERTY_LOCATION, VERIFIED_NEARBY_LANDMARKS, Landmark } from '../data/location';
-import { MapPin, Navigation, Clock, ExternalLink, ShieldCheck, Compass } from 'lucide-react';
+import { Clock, Compass } from 'lucide-react';
 
 export const LocationPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -36,15 +37,26 @@ export const LocationPage: React.FC = () => {
       {/* Title Section */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16 text-center">
         <div className="max-w-3xl mx-auto space-y-4">
-          <span className="text-xs uppercase tracking-[0.35em] text-[#C5A880] font-medium block">
-            Prime Marine Drive Address
-          </span>
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#141312] font-light tracking-tight text-balance">
+          <TextReveal variant="fadeUp" delay={0.1}>
+            <span className="text-xs uppercase tracking-[0.35em] text-[#C5A880] font-medium block">
+              Prime Marine Drive Address
+            </span>
+          </TextReveal>
+
+          <TextReveal
+            as="h1"
+            variant="words"
+            delay={0.2}
+            className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#141312] font-light tracking-tight text-balance"
+          >
             Connected to the City. Above the Ordinary.
-          </h1>
-          <p className="text-base sm:text-lg text-[#635C56] font-light leading-relaxed">
-            {PROPERTY_LOCATION.description}
-          </p>
+          </TextReveal>
+
+          <TextReveal variant="fadeUp" delay={0.4}>
+            <p className="text-base sm:text-lg text-[#635C56] font-light leading-relaxed">
+              {PROPERTY_LOCATION.description}
+            </p>
+          </TextReveal>
         </div>
       </section>
 
@@ -61,7 +73,7 @@ export const LocationPage: React.FC = () => {
               Frontline Ocean Position
             </span>
             <h3 className="font-serif text-2xl text-white">
-              Marine Drive, Colombo 03
+              Marine Drive, Sri Lanka
             </h3>
             <p className="text-xs text-[#8C827A] mt-2 leading-relaxed">
               Situated in Kollupitiya, adjacent to Galle Face Green and Colombo Port City, with rapid elevated highway access to Bandaranaike International Airport.
@@ -73,12 +85,20 @@ export const LocationPage: React.FC = () => {
       {/* Interactive Map Simulation & Destination Explorer */}
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-24">
         <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
-          <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] font-medium block">
-            Verified Proximity
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#141312] font-light">
+          <TextReveal variant="fadeUp" delay={0.1}>
+            <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] font-medium block">
+              Verified Proximity
+            </span>
+          </TextReveal>
+
+          <TextReveal
+            as="h2"
+            variant="words"
+            delay={0.2}
+            className="font-serif text-3xl sm:text-4xl text-[#141312] font-light"
+          >
             Nearby Key Destinations
-          </h2>
+          </TextReveal>
         </div>
 
         {/* Filter categories */}
@@ -162,38 +182,39 @@ export const LocationPage: React.FC = () => {
 
           {/* List of Verified Landmarks */}
           <div className="lg:col-span-5 space-y-4">
-            {filteredLandmarks.map((landmark) => {
+            {filteredLandmarks.map((landmark, idx) => {
               const isSelected = activeLandmark.id === landmark.id;
               return (
-                <div
-                  key={landmark.id}
-                  onClick={() => setActiveLandmark(landmark)}
-                  className={`p-5 border cursor-pointer transition-all duration-300 ${
-                    isSelected
-                      ? 'bg-white border-[#C5A880] shadow-md'
-                      : 'bg-white/60 border-[#E2DDD5] hover:bg-white hover:border-[#8C827A]'
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="text-[10px] uppercase tracking-widest text-[#C5A880] font-semibold block">
-                        {landmark.category} · {landmark.distanceKm}
-                      </span>
-                      <h4 className="font-serif text-lg text-[#141312] mt-0.5">
-                        {landmark.name}
-                      </h4>
-                      <p className="text-xs text-[#635C56] font-light mt-1 leading-relaxed">
-                        {landmark.description}
-                      </p>
-                    </div>
-                    <div className="shrink-0 text-right">
-                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-[#141312] bg-[#EFECE6] px-2.5 py-1">
-                        <Clock className="w-3 h-3 text-[#8C827A]" />
-                        <span>{landmark.travelTime}</span>
-                      </span>
+                <TextReveal key={landmark.id} variant="fadeUp" delay={0.08 * idx}>
+                  <div
+                    onClick={() => setActiveLandmark(landmark)}
+                    className={`p-5 border cursor-pointer transition-all duration-300 ${
+                      isSelected
+                        ? 'bg-white border-[#C5A880] shadow-md'
+                        : 'bg-white/60 border-[#E2DDD5] hover:bg-white hover:border-[#8C827A]'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <span className="text-[10px] uppercase tracking-widest text-[#C5A880] font-semibold block">
+                          {landmark.category} · {landmark.distanceKm}
+                        </span>
+                        <h4 className="font-serif text-lg text-[#141312] mt-0.5">
+                          {landmark.name}
+                        </h4>
+                        <p className="text-xs text-[#635C56] font-light mt-1 leading-relaxed">
+                          {landmark.description}
+                        </p>
+                      </div>
+                      <div className="shrink-0 text-right">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-medium text-[#141312] bg-[#EFECE6] px-2.5 py-1">
+                          <Clock className="w-3 h-3 text-[#8C827A]" />
+                          <span>{landmark.travelTime}</span>
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </TextReveal>
               );
             })}
           </div>

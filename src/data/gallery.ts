@@ -65,7 +65,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: 'gal-06',
-    title: 'Statuario Marble Soaking Bath',
+    title: 'Luxury En-Suite Soaking Bath',
     category: 'bathrooms',
     categoryLabel: 'Bathrooms',
     imageKey: '[BATHROOM_IMAGE]',

@@ -73,11 +73,11 @@ export const Header: React.FC = () => {
           <button
             onClick={() => handleNavClick('/')}
             className="group flex items-center focus:outline-none focus-visible:outline-none transition-transform duration-300 hover:opacity-90 shrink-0"
-            aria-label="Sobha Realty Sri Lanka Homepage"
+            aria-label="Sobha Realty Apartment Homepage"
           >
             <img
               src={isTopHero ? logoDark : logoLight}
-              alt="Sobha Realty Sri Lanka"
+              alt="Sobha Realty Apartment"
               className="h-6 sm:h-7 md:h-8 max-w-[140px] sm:max-w-[170px] md:max-w-[190px] w-auto object-contain shrink-0 transition-opacity duration-300"
               style={{ maxHeight: '60px' }}
             />
@@ -177,7 +177,7 @@ export const Header: React.FC = () => {
               Reserve Single Bedroom Suite
             </button>
             <div className="text-[11px] sm:text-xs text-[#8C827A] space-y-1">
-              <p>Marine Drive, Colombo 03, Sri Lanka</p>
+              <p>Marine Drive, Kollupitiya, Sri Lanka</p>
               <p>Concierge: +94 11 740 8800 · reservations@sobhasrilanka.com</p>
             </div>
           </div>

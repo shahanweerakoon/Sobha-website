@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Sobha Realty Sri Lanka - Verified Location Data
- * Prime Marine Drive, Colombo 03 (Kollupitiya), Western Province, Sri Lanka
+ * Prime Marine Drive, Sri Lanka
  */
 
 export interface Landmark {
@@ -17,14 +17,14 @@ export interface Landmark {
 }
 
 export const PROPERTY_LOCATION = {
-  address: 'Marine Drive, Colombo 03, Sri Lanka',
-  district: 'Colombo 03 (Kollupitiya)',
+  address: 'Marine Drive, Sri Lanka',
+  district: 'Sri Lanka',
   coordinates: {
     lat: 6.9085,
     lng: 79.8512
   },
   tagline: 'Connected to the City. Above the Ordinary.',
-  description: 'Situated along prestigious Marine Drive in Colombo 03, Sobha Sri Lanka commands an enviable frontline position overlooking the Indian Ocean. Residents enjoy immediate coastal tranquility paired with rapid arterial access to Colombo’s financial core, luxury shopping promenades, Michelin-standard dining, and the Port City marina.'
+  description: 'Situated along prestigious Marine Drive in Sri Lanka, Sobha Realty Apartment commands an enviable frontline position overlooking the Indian Ocean. Residents enjoy immediate coastal tranquility paired with rapid arterial access to Colombo’s financial core, luxury shopping promenades, Michelin-standard dining, and the Port City marina.'
 };
 
 export const VERIFIED_NEARBY_LANDMARKS: Landmark[] = [
@@ -35,7 +35,7 @@ export const VERIFIED_NEARBY_LANDMARKS: Landmark[] = [
     travelTime: '4 mins drive · 12 mins walk',
     distanceKm: '1.8 km',
     description: 'Colombo’s iconic oceanfront urban park, famous for sunset walks, gentle sea breezes, and open coastal vistas.',
-    address: 'Galle Face Centre Road, Colombo 03'
+    address: 'Galle Face Centre Road, Sri Lanka'
   },
   {
     id: 'one-galle-face',

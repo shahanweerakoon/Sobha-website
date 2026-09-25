@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Spec #20 & #21: Contact & Private Inquiries Page
- * Route: /contact
+ * Route: /contact with Text Reveal Scroll Animations
  */
 
 import React, { useState } from 'react';
 import { useNavigation } from '../context/NavigationContext';
+import { TextReveal } from '../components/TextReveal';
 import { MapPin, Phone, Mail, Clock, Check, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
@@ -32,7 +33,7 @@ export const ContactPage: React.FC = () => {
   const faqs = [
     {
       q: 'Where is the property situated in Colombo?',
-      a: 'Sobha Sri Lanka is located frontline on Marine Drive in Colombo 03 (Kollupitiya), overlooking the Indian Ocean. It is 5 minutes from Galle Face Green and One Galle Face Mall, and 35 minutes from Bandaranaike International Airport (CMB) via the elevated expressway.'
+      a: 'Sobha Realty Apartment is located frontline on Marine Drive in Sri Lanka, overlooking the Indian Ocean. It is 5 minutes from Galle Face Green and One Galle Face Mall, and 35 minutes from Bandaranaike International Airport (CMB) via the elevated expressway.'
     },
     {
       q: 'What is the difference between Apartment Suites and Apartment Bedroom Suites?',
@@ -53,15 +54,26 @@ export const ContactPage: React.FC = () => {
       {/* Title */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16 md:mb-24 text-center">
         <div className="max-w-2xl mx-auto space-y-4">
-          <span className="text-xs uppercase tracking-[0.35em] text-[#C5A880] font-medium block">
-            Residential Concierge
-          </span>
-          <h1 className="font-serif text-4xl sm:text-6xl text-[#141312] font-light tracking-tight">
+          <TextReveal variant="fadeUp" delay={0.1}>
+            <span className="text-xs uppercase tracking-[0.35em] text-[#C5A880] font-medium block">
+              Residential Concierge
+            </span>
+          </TextReveal>
+
+          <TextReveal
+            as="h1"
+            variant="words"
+            delay={0.2}
+            className="font-serif text-4xl sm:text-6xl text-[#141312] font-light tracking-tight"
+          >
             Private Inquiries
-          </h1>
-          <p className="text-base text-[#635C56] font-light leading-relaxed">
-            Our dedicated residential team is at your disposal for reservations, custom stay arrangements, and private property viewings.
-          </p>
+          </TextReveal>
+
+          <TextReveal variant="fadeUp" delay={0.4}>
+            <p className="text-base text-[#635C56] font-light leading-relaxed">
+              Our dedicated residential team is at your disposal for reservations, custom stay arrangements, and private property viewings.
+            </p>
+          </TextReveal>
         </div>
       </section>
 
@@ -73,10 +85,10 @@ export const ContactPage: React.FC = () => {
             <div className="bg-white p-8 md:p-10 border border-[#E2DDD5] space-y-8">
               <div>
                 <h3 className="font-serif text-2xl text-[#141312] mb-1">
-                  Sobha Realty Sri Lanka
+                  Sobha Realty Apartment
                 </h3>
                 <p className="text-xs text-[#8C827A] uppercase tracking-wider">
-                  Marine Drive Residences · Colombo 03
+                  Marine Drive Residences · Sri Lanka
                 </p>
               </div>
 
@@ -85,7 +97,7 @@ export const ContactPage: React.FC = () => {
                   <MapPin className="w-5 h-5 text-[#C5A880] shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold block text-xs uppercase tracking-wider text-[#8C827A]">Address</span>
-                    <p className="mt-0.5">Marine Drive, Kollupitiya, Colombo 03, Western Province, Sri Lanka</p>
+                    <p className="mt-0.5">Marine Drive, Kollupitiya, Western Province, Sri Lanka</p>
                   </div>
                 </div>
 
@@ -138,7 +150,7 @@ export const ContactPage: React.FC = () => {
                   Inquiry Received
                 </h3>
                 <p className="text-sm text-[#635C56] font-light max-w-md mx-auto leading-relaxed">
-                  Thank you for your interest in Sobha Sri Lanka. A private residential manager will contact you at <span className="font-medium text-[#141312]">{formData.email}</span> shortly.
+                  Thank you for your interest in Sobha Realty Apartment. A private residential manager will contact you at <span className="font-medium text-[#141312]">{formData.email}</span> shortly.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -212,10 +224,9 @@ export const ContactPage: React.FC = () => {
                       onChange={(e) => setFormData({ ...formData, residenceType: e.target.value })}
                       className="w-full p-3 bg-[#FAF8F5] border border-[#D8D2C7] text-xs focus:outline-none focus:border-[#141312]"
                     >
-                      <option value="Apartment Suites">Apartment Suites (Full Residences)</option>
-                      <option value="Apartment Bedroom Suites">Apartment Bedroom Suites</option>
-                      <option value="Grand Ocean Penthouse">The Grand Ocean Penthouse</option>
-                      <option value="Long Term Lease">Extended Corporate Lease (30+ Days)</option>
+                      <option value="Single Bedroom Apartment Suite">Single Bedroom Apartment Suite (Short Stay)</option>
+                      <option value="Apartment Bedroom Suites">Apartment Bedroom Suite</option>
+                      <option value="Flexible Short Rental">Hourly & Short-Term Suite Rental</option>
                     </select>
                   </div>
                 </div>
@@ -229,10 +240,10 @@ export const ContactPage: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, stayDuration: e.target.value })}
                     className="w-full p-3 bg-[#FAF8F5] border border-[#D8D2C7] text-xs focus:outline-none focus:border-[#141312]"
                   >
+                    <option value="Flexible Hourly Stay (4–12 Hours)">Flexible Hourly Stay (4–12 Hours)</option>
                     <option value="Short Stay (1–7 Nights)">Short Stay (1–7 Nights)</option>
                     <option value="Medium Stay (8–29 Nights)">Medium Stay (8–29 Nights)</option>
-                    <option value="Extended Lease (1–6 Months)">Extended Lease (1–6 Months)</option>
-                    <option value="Annual Residence (12+ Months)">Annual Residence (12+ Months)</option>
+                    <option value="Extended Stay (30+ Days)">Extended Stay (30+ Days)</option>
                   </select>
                 </div>
 
@@ -268,36 +279,46 @@ export const ContactPage: React.FC = () => {
         {/* Frequently Asked Questions */}
         <div className="mt-32 max-w-3xl mx-auto space-y-6">
           <div className="text-center space-y-2 mb-10">
-            <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] font-medium block">
-              Essential Information
-            </span>
-            <h3 className="font-serif text-3xl text-[#141312] font-light">
+            <TextReveal variant="fadeUp" delay={0.1}>
+              <span className="text-xs uppercase tracking-[0.3em] text-[#8C827A] font-medium block">
+                Essential Information
+              </span>
+            </TextReveal>
+
+            <TextReveal
+              as="h3"
+              variant="words"
+              delay={0.2}
+              className="font-serif text-3xl text-[#141312] font-light"
+            >
               Frequently Asked Questions
-            </h3>
+            </TextReveal>
           </div>
 
           <div className="space-y-4">
             {faqs.map((faq, i) => {
               const isOpen = openFaq === i;
               return (
-                <div key={i} className="border border-[#E2DDD5] bg-white">
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : i)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-serif text-lg text-[#141312]"
-                  >
-                    <span>{faq.q}</span>
-                    {isOpen ? (
-                      <ChevronUp className="w-5 h-5 text-[#8C827A] shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-[#8C827A] shrink-0" />
+                <TextReveal key={i} variant="fadeUp" delay={0.08 * i}>
+                  <div className="border border-[#E2DDD5] bg-white">
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      className="w-full p-6 text-left flex items-center justify-between gap-4 font-serif text-lg text-[#141312]"
+                    >
+                      <span>{faq.q}</span>
+                      {isOpen ? (
+                        <ChevronUp className="w-5 h-5 text-[#8C827A] shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-[#8C827A] shrink-0" />
+                      )}
+                    </button>
+                    {isOpen && (
+                      <div className="px-6 pb-6 text-sm text-[#635C56] font-light leading-relaxed border-t border-[#FAF8F5] pt-3">
+                        {faq.a}
+                      </div>
                     )}
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-6 text-sm text-[#635C56] font-light leading-relaxed border-t border-[#FAF8F5] pt-3">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
+                  </div>
+                </TextReveal>
               );
             })}
           </div>

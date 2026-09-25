@@ -65,12 +65,12 @@ export const SINGLE_BEDROOM_APARTMENT_SUITE: Residence = {
   slug: 'single-bedroom-apartment-suite',
   type: 'apartment-suite',
   name: 'The Luxury Single Bedroom Apartment Suite',
-  subtitle: 'A premier single-bedroom apartment residence offering uninterrupted ocean views, marble bath, and complete privacy.',
+  subtitle: 'A premier single-bedroom apartment residence offering uninterrupted ocean views, luxury en-suite bath, and complete privacy.',
   tagline: 'Refined single-bedroom apartment living crafted with uncompromising detail',
   heroImageKey: '[APARTMENT_SUITE_IMAGE]',
   secondaryImageKey: '[BEDROOM_SUITE_IMAGE]',
   bedrooms: '1 Single Bedroom',
-  bathrooms: '1 En-Suite Marble Bath',
+  bathrooms: '1 Luxury En-Suite Bath',
   sizeSqFt: 850,
   sizeSqM: 79,
   guestCapacity: 2,
@@ -81,14 +81,14 @@ export const SINGLE_BEDROOM_APARTMENT_SUITE: Residence = {
   startingDurationHours: 4,
   currency: 'Rs.',
   availability: 'Available',
-  overview: 'The Luxury Single Bedroom Apartment Suite is Sobha Sri Lanka’s flagship single-residence accommodation. Perfectly engineered for discerning guests seeking high-end apartment living, quiet work environments, or relaxing getaways. Enjoy floor-to-ceiling soundproof glass, an integrated living pavilion, a marble bathroom, and a private ocean balcony.',
-  architecturalNote: 'Designed with Sobha’s backward integration principles—featuring Italian marble flooring, custom teak joinery, acoustic double glazing, and ambient climate controls.',
+  overview: 'The Luxury Single Bedroom Apartment Suite is Sobha Realty Apartment’s flagship single-residence accommodation. Perfectly engineered for discerning guests seeking high-end apartment living, quiet work environments, or relaxing getaways. Enjoy floor-to-ceiling soundproof glass, an integrated living pavilion, a luxury en-suite bathroom, and a private ocean balcony.',
+  architecturalNote: 'Designed with Sobha’s backward integration principles—featuring premium porcelain flooring, custom teak joinery, acoustic double glazing, and ambient climate controls.',
   spaces: {
     livingArea: {
       title: 'Integrated Living Salon & Work Desk',
       imageKey: '[APARTMENT_SUITE_IMAGE]',
-      description: 'An open-concept living pavilion featuring bespoke Italian seating, high-speed fiber connectivity, ergonomic work desk, and 55" 4K Smart TV.',
-      features: ['Bespoke Italian linen seating', 'Ergonomic walnut desk', 'Acoustic ceiling sound isolation', 'Curated Sri Lankan artwork']
+      description: 'An open-concept living pavilion featuring bespoke designer seating, high-speed fiber connectivity, ergonomic work desk, and 55" 4K Smart TV.',
+      features: ['Bespoke plush linen seating', 'Ergonomic walnut desk', 'Acoustic ceiling sound isolation', 'Curated Sri Lankan artwork']
     },
     bedroom: {
       title: 'Private Master Bedroom Sanctuary',
@@ -103,9 +103,9 @@ export const SINGLE_BEDROOM_APARTMENT_SUITE: Residence = {
       features: ['Nespresso coffee station', 'Integrated compact refrigerator', 'Induction heating & microwave', 'Complimentary Ceylon tea selection']
     },
     bathroom: {
-      title: 'En-Suite Marble Spa Bathroom',
+      title: 'Luxury En-Suite Bathroom',
       imageKey: '[BATHROOM_IMAGE]',
-      description: 'En-suite bath lined with white Statuario marble, featuring a thermostatic rain shower, freestanding tub, and premium bath amenities.',
+      description: 'Private en-suite bathroom featuring a thermostatic rain shower, freestanding tub, and premium bath amenities.',
       features: ['Thermostatic rain shower with body jets', 'Freestanding soaking tub', 'Heated vanity mirror', 'L’Occitane bath products']
     },
     balcony: {
@@ -140,7 +140,7 @@ export const SINGLE_BEDROOM_APARTMENT_SUITE: Residence = {
   floorPlanSummary: [
     'Master Bedroom Chamber (380 sq ft)',
     'Living Salon & Work Nook (300 sq ft)',
-    'Marble En-Suite Bathroom (110 sq ft)',
+    'Luxury En-Suite Bathroom (110 sq ft)',
     'Private Ocean Balcony (60 sq ft)'
   ]
 };

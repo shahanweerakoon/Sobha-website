@@ -33,7 +33,7 @@ export const SobhaImage: React.FC<SobhaImageProps> = ({
   // Determine source from imageKey registry or direct src
   const asset = imageKey ? getImage(imageKey) : null;
   const imageSrc = src || asset?.url || 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85';
-  const imageAlt = alt || asset?.alt || 'Sobha Realty Sri Lanka residence';
+  const imageAlt = alt || asset?.alt || 'Sobha Realty Apartment residence';
 
   // Aspect ratio classes
   const aspectClassMap = {
@@ -61,7 +61,7 @@ export const SobhaImage: React.FC<SobhaImageProps> = ({
             <span className="font-serif text-lg text-[#C5A880]">S</span>
           </div>
           <p className="font-serif text-xl tracking-wide text-center text-[#FAF8F5] mb-2">
-            Sobha Realty Sri Lanka
+            Sobha Realty Apartment
           </p>
           <p className="text-xs uppercase tracking-widest text-[#C5A880]/80 text-center font-sans">
             {imageKey || 'Architectural Residence'}

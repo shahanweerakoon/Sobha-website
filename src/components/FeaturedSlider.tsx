@@ -43,11 +43,11 @@ export const FeaturedSlider: React.FC = () => {
       tag: 'Veranda'
     },
     {
-      title: 'Italian Marble Spa Bathroom',
+      title: 'Kitchenette & Refreshment Salon',
       category: 'Single Bedroom Suite',
-      subtitle: 'En-suite Statuario marble bath with freestanding tub and thermostatic rain shower.',
-      imageKey: '[BATHROOM_IMAGE]',
-      tag: 'En-Suite Spa'
+      subtitle: 'Nespresso coffee bar, microwave, mini-refrigerator, induction cooktop, and artisan glassware.',
+      imageKey: '[KITCHEN_IMAGE]',
+      tag: 'Kitchenette'
     }
   ];
 
